@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="58dd6f5b13fb463c83acf672a937bce8" Name="Diagram1">
+        <EntityTypeShape EntityType="THUEXEModel.CHITIETTHUE" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.CHUCVU" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.DONGIAQG" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.HANGSX" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.KHACHHANG" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.LOAIXE" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.NDBAOTRI" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.NHANVIEN" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="THUEXEModel.TTXE" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="THUEXEModel.fk_KH_CMND_CHITIETTHUE" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.fk_KH_DGQG_ID_CHITIETTHUE" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.fk_NV_ID_CHITIETTHUE" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.fk_TTX_BSX_CHITIETTHUE" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.fk_CV_ID_NHANVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.fk_HSX_ID_TTXE" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.fk_LX_ID_TTXE" ManuallyRouted="false" />
+        <AssociationConnector Association="THUEXEModel.fk_TTX_BSX_TTXE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

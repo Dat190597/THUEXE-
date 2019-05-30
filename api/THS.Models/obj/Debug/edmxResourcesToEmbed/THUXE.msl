@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="THUEXEModelStoreContainer" CdmEntityContainer="THUEXE_Entities">
+    <EntitySetMapping Name="CHITIETTHUEs">
+      <EntityTypeMapping TypeName="THUEXEModel.CHITIETTHUE">
+        <MappingFragment StoreEntitySet="CHITIETTHUE">
+          <ScalarProperty Name="CTT_ID" ColumnName="CTT_ID" />
+          <ScalarProperty Name="CTT_TGLX" ColumnName="CTT_TGLX" />
+          <ScalarProperty Name="CTT_TGTX" ColumnName="CTT_TGTX" />
+          <ScalarProperty Name="CTT_NGAY" ColumnName="CTT_NGAY" />
+          <ScalarProperty Name="CTT_TGTXTT" ColumnName="CTT_TGTXTT" />
+          <ScalarProperty Name="CTT_TONGTIEN" ColumnName="CTT_TONGTIEN" />
+          <ScalarProperty Name="CTT_TIENNG" ColumnName="CTT_TIENNG" />
+          <ScalarProperty Name="NV_ID" ColumnName="NV_ID" />
+          <ScalarProperty Name="TTX_BSX" ColumnName="TTX_BSX" />
+          <ScalarProperty Name="KH_CMND" ColumnName="KH_CMND" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHUCVUs">
+      <EntityTypeMapping TypeName="THUEXEModel.CHUCVU">
+        <MappingFragment StoreEntitySet="CHUCVU">
+          <ScalarProperty Name="CV_ID" ColumnName="CV_ID" />
+          <ScalarProperty Name="CV_TEN" ColumnName="CV_TEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DONGIAs">
+      <EntityTypeMapping TypeName="THUEXEModel.DONGIA">
+        <MappingFragment StoreEntitySet="DONGIA">
+          <ScalarProperty Name="LX_ID" ColumnName="LX_ID" />
+          <ScalarProperty Name="HSX_ID" ColumnName="HSX_ID" />
+          <ScalarProperty Name="DG_DONGIA" ColumnName="DG_DONGIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HANGSXes">
+      <EntityTypeMapping TypeName="THUEXEModel.HANGSX">
+        <MappingFragment StoreEntitySet="HANGSX">
+          <ScalarProperty Name="HSX_ID" ColumnName="HSX_ID" />
+          <ScalarProperty Name="HSX_TEN" ColumnName="HSX_TEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHACHHANGs">
+      <EntityTypeMapping TypeName="THUEXEModel.KHACHHANG">
+        <MappingFragment StoreEntitySet="KHACHHANG">
+          <ScalarProperty Name="KH_CMND" ColumnName="KH_CMND" />
+          <ScalarProperty Name="KH_TEN" ColumnName="KH_TEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOAIXEs">
+      <EntityTypeMapping TypeName="THUEXEModel.LOAIXE">
+        <MappingFragment StoreEntitySet="LOAIXE">
+          <ScalarProperty Name="LX_ID" ColumnName="LX_ID" />
+          <ScalarProperty Name="LX_TEN" ColumnName="LX_TEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NDBAOTRIs">
+      <EntityTypeMapping TypeName="THUEXEModel.NDBAOTRI">
+        <MappingFragment StoreEntitySet="NDBAOTRI">
+          <ScalarProperty Name="NDBT_ID" ColumnName="NDBT_ID" />
+          <ScalarProperty Name="NDBT_ND" ColumnName="NDBT_ND" />
+          <ScalarProperty Name="NDBT_CHIPHI" ColumnName="NDBT_CHIPHI" />
+          <ScalarProperty Name="NDBT_NGAYBT" ColumnName="NDBT_NGAYBT" />
+          <ScalarProperty Name="TTX_BSX" ColumnName="TTX_BSX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHANVIENs">
+      <EntityTypeMapping TypeName="THUEXEModel.NHANVIEN">
+        <MappingFragment StoreEntitySet="NHANVIEN">
+          <ScalarProperty Name="NV_ID" ColumnName="NV_ID" />
+          <ScalarProperty Name="NV_TEN" ColumnName="NV_TEN" />
+          <ScalarProperty Name="CV_ID" ColumnName="CV_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TTXEs">
+      <EntityTypeMapping TypeName="THUEXEModel.TTXE">
+        <MappingFragment StoreEntitySet="TTXE">
+          <ScalarProperty Name="TTX_BSX" ColumnName="TTX_BSX" />
+          <ScalarProperty Name="LX_ID" ColumnName="LX_ID" />
+          <ScalarProperty Name="HSX_ID" ColumnName="HSX_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

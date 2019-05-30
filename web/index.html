@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="app.js"></script>
+    <title>Hệ thống cho thuê xe</title>
+</head>
+<body ng-app='ThueXe' >
+    <div class="container">
+
+        <div class="row">
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 banner">
+                <h2 class="display-5"><i class="fas fa-car-side icon"></i> HỆ THỐNG CHO THUÊ XE</h2>
+            </div>
+        </div> <!--end of row-->
+
+        <div class="row body">
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h3 class="title">THÔNG TIN XE</h3>
+                <table class="table tablecss" ng-controller='TTXE'>
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">Biển số</th>
+                        <th scope="col">Loại xe</th>
+                        <th scope="col">Hãng sản xuất</th>
+                        <th scope="col">Đơn giá(vdn/h)</th>
+                        <th scope="col">Trạng thái</th>
+                        <th scope="col">Cập nhật/ Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr ng-repeat='item in mydata'>
+                            <td >{{item.TTX_BSX}}</td>
+                            <td >{{item.LX_TEN}}</td>
+                            <td >{{item.HSX_TEN}}</td>
+                            <td >{{item.DONGIA}}</td>
+                            <td >{{item.TTX_TRANGTHAI}}</td>
+                            <td>
+                                <button type="button" class="btn btn-xs btn-info btncss"><i class="fas fa-wrench"></i></button>
+                                <button type="button" class="btn btn-xs btn-danger btncss" ng-click='deleteTTXE($index)'><i class="far fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> <!--end of col-->
+            
+        </div> <!--end of row-->
+    </div> <!--end of container-->
+
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-lg-8" style="border:3px solid black;">
+                
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

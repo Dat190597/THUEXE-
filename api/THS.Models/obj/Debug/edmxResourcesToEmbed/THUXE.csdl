@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="THUEXEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CHITIETTHUE">
+    <Key>
+      <PropertyRef Name="CTT_ID" />
+    </Key>
+    <Property Name="CTT_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CTT_TGLX" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CTT_TGTX" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CTT_NGAY" Type="DateTime" Precision="0" />
+    <Property Name="CTT_TGTXTT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="CTT_TONGTIEN" Type="Int32" />
+    <Property Name="CTT_TIENNG" Type="Int32" />
+    <Property Name="NV_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TTX_BSX" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KH_CMND" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="KHACHHANG" Relationship="Self.fk_KH_CMND_CHITIETTHUE" FromRole="CHITIETTHUE" ToRole="KHACHHANG" />
+    <NavigationProperty Name="NHANVIEN" Relationship="Self.fk_NV_ID_CHITIETTHUE" FromRole="CHITIETTHUE" ToRole="NHANVIEN" />
+    <NavigationProperty Name="TTXE" Relationship="Self.fk_TTX_BSX_CHITIETTHUE" FromRole="CHITIETTHUE" ToRole="TTXE" />
+  </EntityType>
+  <EntityType Name="CHUCVU">
+    <Key>
+      <PropertyRef Name="CV_ID" />
+    </Key>
+    <Property Name="CV_ID" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="CV_TEN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="NHANVIENs" Relationship="Self.fk_CV_ID_NHANVIEN" FromRole="CHUCVU" ToRole="NHANVIEN" />
+  </EntityType>
+  <EntityType Name="DONGIA">
+    <Key>
+      <PropertyRef Name="LX_ID" />
+      <PropertyRef Name="HSX_ID" />
+    </Key>
+    <Property Name="LX_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HSX_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DG_DONGIA" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="HANGSX" Relationship="Self.fk_HSX_ID_DONGIA" FromRole="DONGIA" ToRole="HANGSX" />
+    <NavigationProperty Name="LOAIXE" Relationship="Self.fk_LX_ID_DONGIA" FromRole="DONGIA" ToRole="LOAIXE" />
+  </EntityType>
+  <EntityType Name="HANGSX">
+    <Key>
+      <PropertyRef Name="HSX_ID" />
+    </Key>
+    <Property Name="HSX_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HSX_TEN" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DONGIAs" Relationship="Self.fk_HSX_ID_DONGIA" FromRole="HANGSX" ToRole="DONGIA" />
+    <NavigationProperty Name="TTXEs" Relationship="Self.fk_HSX_ID_TTXE" FromRole="HANGSX" ToRole="TTXE" />
+  </EntityType>
+  <EntityType Name="KHACHHANG">
+    <Key>
+      <PropertyRef Name="KH_CMND" />
+    </Key>
+    <Property Name="KH_CMND" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="KH_TEN" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CHITIETTHUEs" Relationship="Self.fk_KH_CMND_CHITIETTHUE" FromRole="KHACHHANG" ToRole="CHITIETTHUE" />
+  </EntityType>
+  <EntityType Name="LOAIXE">
+    <Key>
+      <PropertyRef Name="LX_ID" />
+    </Key>
+    <Property Name="LX_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LX_TEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DONGIAs" Relationship="Self.fk_LX_ID_DONGIA" FromRole="LOAIXE" ToRole="DONGIA" />
+    <NavigationProperty Name="TTXEs" Relationship="Self.fk_LX_ID_TTXE" FromRole="LOAIXE" ToRole="TTXE" />
+  </EntityType>
+  <EntityType Name="NDBAOTRI">
+    <Key>
+      <PropertyRef Name="NDBT_ID" />
+    </Key>
+    <Property Name="NDBT_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NDBT_ND" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NDBT_CHIPHI" Type="Int32" Nullable="false" />
+    <Property Name="NDBT_NGAYBT" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TTX_BSX" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TTXE" Relationship="Self.fk_TTX_BSX_TTXE" FromRole="NDBAOTRI" ToRole="TTXE" />
+  </EntityType>
+  <EntityType Name="NHANVIEN">
+    <Key>
+      <PropertyRef Name="NV_ID" />
+    </Key>
+    <Property Name="NV_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NV_TEN" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CV_ID" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CHITIETTHUEs" Relationship="Self.fk_NV_ID_CHITIETTHUE" FromRole="NHANVIEN" ToRole="CHITIETTHUE" />
+    <NavigationProperty Name="CHUCVU" Relationship="Self.fk_CV_ID_NHANVIEN" FromRole="NHANVIEN" ToRole="CHUCVU" />
+  </EntityType>
+  <EntityType Name="TTXE">
+    <Key>
+      <PropertyRef Name="TTX_BSX" />
+    </Key>
+    <Property Name="TTX_BSX" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LX_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HSX_ID" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CHITIETTHUEs" Relationship="Self.fk_TTX_BSX_CHITIETTHUE" FromRole="TTXE" ToRole="CHITIETTHUE" />
+    <NavigationProperty Name="HANGSX" Relationship="Self.fk_HSX_ID_TTXE" FromRole="TTXE" ToRole="HANGSX" />
+    <NavigationProperty Name="LOAIXE" Relationship="Self.fk_LX_ID_TTXE" FromRole="TTXE" ToRole="LOAIXE" />
+    <NavigationProperty Name="NDBAOTRIs" Relationship="Self.fk_TTX_BSX_TTXE" FromRole="TTXE" ToRole="NDBAOTRI" />
+  </EntityType>
+  <Association Name="fk_KH_CMND_CHITIETTHUE">
+    <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CHITIETTHUE" Type="Self.CHITIETTHUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHACHHANG">
+        <PropertyRef Name="KH_CMND" />
+      </Principal>
+      <Dependent Role="CHITIETTHUE">
+        <PropertyRef Name="KH_CMND" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_NV_ID_CHITIETTHUE">
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CHITIETTHUE" Type="Self.CHITIETTHUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHANVIEN">
+        <PropertyRef Name="NV_ID" />
+      </Principal>
+      <Dependent Role="CHITIETTHUE">
+        <PropertyRef Name="NV_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_TTX_BSX_CHITIETTHUE">
+    <End Role="TTXE" Type="Self.TTXE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CHITIETTHUE" Type="Self.CHITIETTHUE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TTXE">
+        <PropertyRef Name="TTX_BSX" />
+      </Principal>
+      <Dependent Role="CHITIETTHUE">
+        <PropertyRef Name="TTX_BSX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_CV_ID_NHANVIEN">
+    <End Role="CHUCVU" Type="Self.CHUCVU" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHUCVU">
+        <PropertyRef Name="CV_ID" />
+      </Principal>
+      <Dependent Role="NHANVIEN">
+        <PropertyRef Name="CV_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_HSX_ID_DONGIA">
+    <End Role="HANGSX" Type="Self.HANGSX" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DONGIA" Type="Self.DONGIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANGSX">
+        <PropertyRef Name="HSX_ID" />
+      </Principal>
+      <Dependent Role="DONGIA">
+        <PropertyRef Name="HSX_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_LX_ID_DONGIA">
+    <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DONGIA" Type="Self.DONGIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIXE">
+        <PropertyRef Name="LX_ID" />
+      </Principal>
+      <Dependent Role="DONGIA">
+        <PropertyRef Name="LX_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_HSX_ID_TTXE">
+    <End Role="HANGSX" Type="Self.HANGSX" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TTXE" Type="Self.TTXE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HANGSX">
+        <PropertyRef Name="HSX_ID" />
+      </Principal>
+      <Dependent Role="TTXE">
+        <PropertyRef Name="HSX_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_LX_ID_TTXE">
+    <End Role="LOAIXE" Type="Self.LOAIXE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TTXE" Type="Self.TTXE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOAIXE">
+        <PropertyRef Name="LX_ID" />
+      </Principal>
+      <Dependent Role="TTXE">
+        <PropertyRef Name="LX_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_TTX_BSX_TTXE">
+    <End Role="TTXE" Type="Self.TTXE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="NDBAOTRI" Type="Self.NDBAOTRI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TTXE">
+        <PropertyRef Name="TTX_BSX" />
+      </Principal>
+      <Dependent Role="NDBAOTRI">
+        <PropertyRef Name="TTX_BSX" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="THUEXE_Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CHITIETTHUEs" EntityType="Self.CHITIETTHUE" />
+    <EntitySet Name="CHUCVUs" EntityType="Self.CHUCVU" />
+    <EntitySet Name="DONGIAs" EntityType="Self.DONGIA" />
+    <EntitySet Name="HANGSXes" EntityType="Self.HANGSX" />
+    <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
+    <EntitySet Name="LOAIXEs" EntityType="Self.LOAIXE" />
+    <EntitySet Name="NDBAOTRIs" EntityType="Self.NDBAOTRI" />
+    <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+    <EntitySet Name="TTXEs" EntityType="Self.TTXE" />
+    <AssociationSet Name="fk_KH_CMND_CHITIETTHUE" Association="Self.fk_KH_CMND_CHITIETTHUE">
+      <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+      <End Role="CHITIETTHUE" EntitySet="CHITIETTHUEs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_NV_ID_CHITIETTHUE" Association="Self.fk_NV_ID_CHITIETTHUE">
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+      <End Role="CHITIETTHUE" EntitySet="CHITIETTHUEs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_TTX_BSX_CHITIETTHUE" Association="Self.fk_TTX_BSX_CHITIETTHUE">
+      <End Role="TTXE" EntitySet="TTXEs" />
+      <End Role="CHITIETTHUE" EntitySet="CHITIETTHUEs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_CV_ID_NHANVIEN" Association="Self.fk_CV_ID_NHANVIEN">
+      <End Role="CHUCVU" EntitySet="CHUCVUs" />
+      <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_HSX_ID_DONGIA" Association="Self.fk_HSX_ID_DONGIA">
+      <End Role="HANGSX" EntitySet="HANGSXes" />
+      <End Role="DONGIA" EntitySet="DONGIAs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_LX_ID_DONGIA" Association="Self.fk_LX_ID_DONGIA">
+      <End Role="LOAIXE" EntitySet="LOAIXEs" />
+      <End Role="DONGIA" EntitySet="DONGIAs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_HSX_ID_TTXE" Association="Self.fk_HSX_ID_TTXE">
+      <End Role="HANGSX" EntitySet="HANGSXes" />
+      <End Role="TTXE" EntitySet="TTXEs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_LX_ID_TTXE" Association="Self.fk_LX_ID_TTXE">
+      <End Role="LOAIXE" EntitySet="LOAIXEs" />
+      <End Role="TTXE" EntitySet="TTXEs" />
+    </AssociationSet>
+    <AssociationSet Name="fk_TTX_BSX_TTXE" Association="Self.fk_TTX_BSX_TTXE">
+      <End Role="TTXE" EntitySet="TTXEs" />
+      <End Role="NDBAOTRI" EntitySet="NDBAOTRIs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
